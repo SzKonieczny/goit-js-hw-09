@@ -39,14 +39,14 @@ function datetimePicker(selectedDates) {
     startButton.disabled = true;
     return;
   } else {
-    startButton.disabled = false;
+    startBtn.disabled = false;
   }
 }
 
-startButton.addEventListener('click', handleclick);
+startBtn.addEventListener('click', handleclick);
 
 function handleclick() {
-  startButton.disabled = true;
+  startBtn.disabled = true;
   input.disabled = true;
 
   intervalId = setInterval(updateCountdown, 1000);
