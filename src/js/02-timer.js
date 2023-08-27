@@ -36,7 +36,7 @@ function datetimePicker(selectedDates) {
     Notiflix.Notify.failure('Please choose a date in the future', {
       clickToClose: true,
     });
-    startButton.disabled = true;
+    startBtn.disabled = true;
     return;
   } else {
     startBtn.disabled = false;
