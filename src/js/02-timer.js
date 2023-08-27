@@ -3,11 +3,11 @@ import Notiflix from 'notiflix';
 import 'flatpickr/dist/flatpickr.min.css';
 
 const input = document.querySelector('#datetime-picker');
-const startButton = document.querySelector('[data-start]');
-const daysElement = document.querySelector('[data-days]');
-const hoursElement = document.querySelector('[data-hours]');
-const minutesElement = document.querySelector('[data-minutes]');
-const secondsElement = document.querySelector('[data-seconds]');
+const startBtn = document.querySelector('button[data-start]');
+const daysElement = document.querySelector('span[data-days]');
+const hoursElement = document.querySelector('span[data-hours]');
+const minutesElement = document.querySelector('span[data-minutes]');
+const secondsElement = document.querySelector('span[data-seconds]');
 // for styling:
 const divTimer = document.querySelector('.timer');
 const divField = document.querySelectorAll('.field');
@@ -27,13 +27,13 @@ const options = {
 
 let intervalId = 0;
 
-startButton.disabled = true;
+startBtn.disabled = true;
 
 flatpickr('#datetime-picker', { ...options });
 
 function datetimePicker(selectedDates) {
   if (selectedDates[0].getTime() <= new Date()) {
-    Notify.failure('Please choose a date in the future', {
+    Notiflix.Notify.failure('Please choose a date in the future', {
       clickToClose: true,
     });
     startButton.disabled = true;
@@ -110,7 +110,3 @@ spanLabel.forEach(label => {
 spanValue.forEach(val => {
   val.style.fontSize = '20px';
 });
-
-// console.log(convertMs(2000)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
-// console.log(convertMs(140000)); // {days: 0, hours: 0, minutes: 2, seconds: 20}
-// console.log(convertMs(24140000)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
