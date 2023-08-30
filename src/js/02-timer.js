@@ -55,6 +55,17 @@ function handleclick() {
     const targetDate = new Date(input.value);
     const currentDate = new Date();
     const timeDifference = targetDate - currentDate;
+    // clock reset
+    if (timeDifference < 0) {
+      clearInterval(intervalId);
+      startButton.disabled = true;
+
+      daysElement.textContent = '00';
+      hoursElement.textContent = '00';
+      minutesElement.textContent = '00';
+      secondsElement.textContent = '00';
+      return;
+    }
 
     const { days, hours, minutes, seconds } = convertMs(timeDifference);
 
