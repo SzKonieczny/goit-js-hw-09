@@ -58,7 +58,7 @@ function handleclick() {
     // clock reset
     if (timeDifference < 0) {
       clearInterval(intervalId);
-      startButton.disabled = true;
+      startBtn.disabled = true;
 
       daysElement.textContent = '00';
       hoursElement.textContent = '00';
